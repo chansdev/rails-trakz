@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "expo-router": "^6.0.10",
+    "react-router-dom": "^7.9.2"
+  }
+}
