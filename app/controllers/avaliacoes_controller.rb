@@ -9,14 +9,15 @@ class AvaliacoesController < ApplicationController
     render json: Avaliacao
   end
 
-  def create
-    alvaliacao = Avaliacao.new(Avaliacao_params)
-    if avaliacao.save
-      render json: avaliacao, status: :created
-    else
-      render json: { errors: avaliacao.errors.full_messages }, status: :unprocessable_entity
-    end
+def create
+  avaliacao = Avaliacao.new(avaliacao_params)
+  if avaliacao.save
+    render json: avaliacao, status: :created
+  else
+    render json: { errors: avaliacao.errors.full_messages }, status: :unprocessable_entity
   end
+end
+  
 
   def update
     avaliacao = Avaliacao.find(params[:id])
@@ -39,6 +40,6 @@ end
   private
 
   def avaliacao_params
-    params.require(:avaliacao).permit(:name, :email)
+    params.require(:avaliacao).permit(:usuario_id, :musica_id, :comentario, :nota )
   end
 end
